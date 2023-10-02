@@ -25,7 +25,7 @@
 
 ### Notes
 
-This repositry is unstyled and open to use whatever style engine of preference. For example you can use one of the following:
+This repository is unstyled and open to use whatever style engine of preference. For example you can use one of the following:
 
 - Vanilla CSS/SCSS
 - TailwindCSS
