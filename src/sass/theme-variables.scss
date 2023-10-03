@@ -1,22 +1,15 @@
 :root {
 
+    // Colours
     --gray: #cccccc;
     --light-blue: #add8e6;
-
-    --dark: #333333;
+    --dark: #121212;
     --light: #ffffff;
 
+    // Globals
     --font-color: var(--dark);
     --link-color: var(--light-blue);
-    --body-background: #eee;
 
-    --header-color: var(--white);
-
-    --header-bg-color: var(--dark);
-    --header-dark-bg-color: var(--dark);
-
-    --footer-bg-color: var(--light);
-    --footer-dark-bg-color: var(--dark);
 
     // Font Sizes
     --heading-h1: 4rem;
@@ -27,4 +20,3 @@
     --heading-h6: 1.5rem;
 
 }
-

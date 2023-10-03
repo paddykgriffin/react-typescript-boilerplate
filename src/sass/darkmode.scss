@@ -1,17 +1,22 @@
 [data-theme="dark"] {
-    --font-color: var(--light);
-    --link-color: var(--light);
-    --body-background: #121212;
+    color: var(--light);
 
+    body {
+        background-color: var(--dark);
+    }
+
+    a {
+        color: var(--light)
+    }
 
     header {
-        color: var(--font-color-dark);
-        background-color: var(--header-dark-bg-color);
+        color: var(--light);
+        background-color: var(--dark);
     }
 
     footer {
-        color: var(--font-color-dark);
-        background-color: var(--footer-dark-bg-color);
+        color: var(--light);
+        background-color: var(--dark);
     }
 
 }
