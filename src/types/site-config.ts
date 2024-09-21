@@ -2,8 +2,8 @@ import { SiteConfig } from './site-config-types';
 
 const siteConfig: SiteConfig = {
   siteName: 'Paddys Boilerplate',
+  darkMode: false,
   theme: {
-    darkMode: true,
     color: {
       primary: {
         light: 'red',

@@ -5,8 +5,8 @@ export type SiteMode = {
 
 export type SiteConfig = {
   siteName: string;
+  darkMode: boolean;
   theme: {
-    darkMode: boolean;
     color: {
       primary: SiteMode;
       secondary: SiteMode;

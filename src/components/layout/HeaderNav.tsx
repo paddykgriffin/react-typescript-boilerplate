@@ -7,6 +7,7 @@ const HeaderNav = () => {
       style={{
         display: 'flex',
         gap: '16px',
+        marginRight: '2rem'
       }}
     >
       {HeaderMenuLinks.map(item => (
