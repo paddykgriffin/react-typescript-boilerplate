@@ -1,6 +1,6 @@
 import React from 'react';
-import FooterNav from './FooterNav';
-import siteConfig from '@/types/site-config';
+import FooterNav from '../navigation/FooterNav';
+import siteConfig from '@/site-config';
 
 const Footer = () => {
   const year = new Date().getFullYear();

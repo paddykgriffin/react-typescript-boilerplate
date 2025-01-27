@@ -4,10 +4,11 @@ import HeadingH3 from '@/components/typography/HeadingH3';
 import HeadingH4 from '@/components/typography/HeadingH4';
 import Paragraph from '@/components/typography/Paragraph';
 import React from 'react';
+import Layout from '@/components/layout/Layout';
 
 const Home = () => {
   return (
-    <>
+    <Layout pageTitle="sit name">
       <Heading title="Heading h1" />
       <HeadingH2 title="Heading h2" />
       <HeadingH3 title="Heading h3" />
@@ -17,19 +18,7 @@ const Home = () => {
       repellendus id quae alias minima praesentium, non provident exercitationem pariatur mollitia, ratione impedit
       tempora quibusdam reprehenderit eveniet, iste dolorem! Neque accusamus repudiandae fugiat beatae."
       />
-
-      <Paragraph
-        text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus qui fugit molestias nulla voluptatum repellat hic
-      repellendus id quae alias minima praesentium, non provident exercitationem pariatur mollitia, ratione impedit
-      tempora quibusdam reprehenderit eveniet, iste dolorem! Neque accusamus repudiandae fugiat beatae."
-      />
-
-      <Paragraph
-        text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus qui fugit molestias nulla voluptatum repellat hic
-      repellendus id quae alias minima praesentium, non provident exercitationem pariatur mollitia, ratione impedit
-      tempora quibusdam reprehenderit eveniet, iste dolorem! Neque accusamus repudiandae fugiat beatae."
-      />
-    </>
+    </Layout>
   );
 };
 

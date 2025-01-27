@@ -1,4 +1,4 @@
-import { SiteConfig } from './site-config-types';
+import { SiteConfig } from './types/site-config-types';
 
 const siteConfig: SiteConfig = {
   siteName: 'Paddys Boilerplate',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderMenuLinks } from './HeaderMenuLinks';
+import { HeaderMenuLinks } from '../navigation/HeaderMenuLinks';
 
 const HeaderNav = () => {
   return (

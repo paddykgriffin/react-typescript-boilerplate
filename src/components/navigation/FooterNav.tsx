@@ -1,5 +1,5 @@
 import React from 'react';
-import { FooterMenuLinks } from './FooterMenuLinks';
+import { FooterMenuLinks } from '../navigation/FooterMenuLinks';
 
 const FooterNav = () => {
   return (

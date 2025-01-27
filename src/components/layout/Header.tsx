@@ -1,5 +1,5 @@
-import HeaderNav from './HeaderNav';
-import siteConfig from '@/types/site-config';
+import HeaderNav from '../navigation/HeaderNav';
+import siteConfig from '@/site-config';
 
 const Header = () => {
   return (
