@@ -1,72 +1,50 @@
-import { defineConfig, loadEnv } from 'vite';
-import react from '@vitejs/plugin-react';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import { createHtmlPlugin } from 'vite-plugin-html';
-import checker from 'vite-plugin-checker';
 import path from 'path';
+import react from '@vitejs/plugin-react';
+import { defineConfig, loadEnv } from 'vite';
+import svgr from 'vite-plugin-svgr';
 
-import { dependencies } from './package.json';
-function renderChunks(deps) {
-  let chunks = {};
-  Object.keys(deps).forEach(key => {
-    if (['react', 'react-router-dom', 'react-dom'].includes(key)) return;
-    chunks[key] = [key];
-  });
-  return chunks;
-}
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, 'env');
+  const env = Object.assign(process.env, loadEnv(mode, process.cwd(), ""));
+  const processEnvValues = {
+    "process.env": Object.entries(env).reduce((prev, [key,value]) => {
+      return Object.assign(prev, {
+        [key]: value,
+      });
+  }, {}),
+}
 
   return {
-    server: { hmr: true },
     plugins: [
-      react({
-        include: ['**/*.tsx', '**/*.ts'],
+      react(),
+      svgr({
+        include: "**/*.svg?react",
       }),
-      tsconfigPaths(),
-      createHtmlPlugin({
-        minify: true,
-        inject: {
-          data: {
-            ...env,
-            MODE: mode,
-          },
-        },
-      }),
-      checker({ typescript: true }),
     ],
-    resolve: {
-      alias: { '@': path.resolve(__dirname, 'src/') },
+    define: processEnvValues,
+    server: {
+      open: true,
+      host: 'localhost',
+      port: 3000,
+     
     },
-    css: {
-      postcss: ctx => ({
-        parser: ctx.parser ? 'sugarss' : false,
-        map: ctx.env === 'development' ? ctx.map : false,
-        plugins: {
-          'postcss-import': {},
-          'postcss-nested': {},
-          cssnano: ctx.env === 'production' ? {} : false,
-          autoprefixer: { overrideBrowserslist: ['defaults'] },
-        },
-      }),
-    },
+    envPrefix: "REACT_APP_",
+    base: '/',
     build: {
-      sourcemap: false,
+      outDir: 'build',
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['react', 'react-router-dom', 'react-dom'],
-            ...renderChunks(dependencies),
+          manualChunks: (id) => {
+            if (id.includes('node_modules')) {
+              return id.toString().split('node_modules/')[1].split('/')[0].toString();
+            }
           },
         },
       },
     },
-    test: {
-      globals: true,
-      coverage: {
-        reporter: ['text', 'json', 'html'],
-      },
+    resolve: {
+      alias: { 
+        '@': path.resolve(__dirname, './src') }
     },
   };
 });
